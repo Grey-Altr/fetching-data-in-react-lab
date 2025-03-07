@@ -1,10 +1,14 @@
 const BASE_URL = "https://swapi.info/api/starships";
 
-const show = async (starship) => {
-    fetch("https://swapi.info/api/starships")
-        .then((res) => res.json()) // Parse the JSON content from the API to be consumed
-        .then((json) => console.log(json)) // Log the JSON response to your console
-        .catch((error) => console.error(error)); // Log the API error (if any) to your console
+const index = async () => {
+    try {
+        const res = await fetch(BASE_URL);
+        const data = await res.json();
+        console.log('Data:', data);
+        return data;
+    } catch {
+        console.log(err);
+    };
 };
 
-export { show };
+export { index };
